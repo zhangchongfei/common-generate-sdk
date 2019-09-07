@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>common.generate.com</groupId>
+    <artifactId>common-generate-sdk</artifactId>
+    <version>1.0-SNAPSHOT</version>
+<!--    如有引用请自行修改仓库地址-->
+    <properties>
+        <git.repo.url>https://repo.i.sixi.com</git.repo.url>
+    </properties>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sixi</id>
+            <name>四喜Maven仓库</name>
+            <url>${git.repo.url}/repository/maven-public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.7</version>
+                <configuration>
+                    <configurationFile>generator.xml</configurationFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>zcf.mybatis.generator</groupId>
+                        <artifactId>lombok-plugin</artifactId>
+                        <version>1.0-SNAPSHOT</version>
+                        <scope>system</scope>
+                        <systemPath>${basedir}/src/main/resources/lib/lombok-plugin-1.0-SNAPSHOT.jar</systemPath>
+                    </dependency>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>5.1.47</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
